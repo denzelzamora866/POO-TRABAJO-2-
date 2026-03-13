@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Académico</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Sistema Académico</h1>
+      <p>Gestión local de carreras, clases, años escolares y alumnos</p>
+    </header>
+
+    <nav class="tabs" aria-label="Sesiones">
+      <button class="tab-button active" data-tab="configuracion">Configuración</button>
+      <button class="tab-button" data-tab="principal">Principal</button>
+    </nav>
+
+    <main>
+      <section id="configuracion" class="tab-panel active">
+        <div class="grid">
+          <article class="card">
+            <h2>Registrar carrera</h2>
+            <form id="carrera-form">
+              <label>Nombre de la carrera</label>
+              <input type="text" name="nombre" required />
+              <button type="submit">Guardar carrera</button>
+            </form>
+            <ul id="carreras-list" class="item-list"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Registrar clase</h2>
+            <form id="clase-form">
+              <label>Nombre de la clase</label>
+              <input type="text" name="nombre" required />
+              <button type="submit">Guardar clase</button>
+            </form>
+            <ul id="clases-list" class="item-list"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Registrar año escolar</h2>
+            <form id="anio-form">
+              <label>Nombre o código del año</label>
+              <input type="text" name="nombre" required />
+              <button type="submit">Guardar año</button>
+            </form>
+            <ul id="anios-list" class="item-list"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Registrar alumno</h2>
+            <form id="alumno-form">
+              <label>Nombre</label>
+              <input type="text" name="nombre" required />
+              <label>Apellido</label>
+              <input type="text" name="apellido" required />
+              <label>Documento</label>
+              <input type="text" name="documento" required />
+              <button type="submit">Guardar alumno</button>
+            </form>
+            <ul id="alumnos-list" class="item-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="principal" class="tab-panel">
+        <div class="grid">
+          <article class="card">
+            <h2>Asociar carrera con año</h2>
+            <form id="carrera-anio-form">
+              <label>Carrera</label>
+              <select id="ca-carrera" required></select>
+              <label>Año escolar</label>
+              <select id="ca-anio" required></select>
+              <button type="submit">Asociar</button>
+            </form>
+            <ul id="carrera-anio-list" class="item-list"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Asociar año con clase</h2>
+            <form id="anio-clase-form">
+              <label>Año escolar</label>
+              <select id="ac-anio" required></select>
+              <label>Clase</label>
+              <select id="ac-clase" required></select>
+              <button type="submit">Asociar</button>
+            </form>
+            <ul id="anio-clase-list" class="item-list"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Asociar alumno con año</h2>
+            <form id="alumno-anio-form">
+              <label>Alumno</label>
+              <select id="aa-alumno" required></select>
+              <label>Año escolar</label>
+              <select id="aa-anio" required></select>
+              <button type="submit">Asociar</button>
+            </form>
+            <ul id="alumno-anio-list" class="item-list"></ul>
+          </article>
+        </div>
+
+        <article class="card table-card">
+          <h2>Resumen de alumnos</h2>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Alumno</th>
+                  <th>Carrera</th>
+                  <th>Año</th>
+                </tr>
+              </thead>
+              <tbody id="resumen-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
